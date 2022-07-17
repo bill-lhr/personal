@@ -3,9 +3,9 @@
  * @Date: 2021/5/31 下午6:34
  */
 
-package main
+package quick_sort
 
-func quickSort(a []int, low, high int) {
+func quickSort2(a []int, low, high int) {
 	if low >= high {
 		return
 	}
@@ -33,8 +33,8 @@ func quickSort(a []int, low, high int) {
 		} else {
 			i = pivot
 		}
-		quickSort(a, low, i-1)
-		quickSort(a, i+1, high)
+		quickSort2(a, low, i-1)
+		quickSort2(a, i+1, high)
 	} else {
 		insertSort(a)
 	}
