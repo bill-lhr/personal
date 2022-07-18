@@ -5,8 +5,6 @@
 
 package main
 
-import "fmt"
-
 const N = 8
 
 var board [8][8]bool
@@ -45,9 +43,4 @@ func dfs(x, y int) {
 			board[x][i] = false
 		}
 	}
-}
-
-func main() {
-	dfs(0, 0)
-	fmt.Println(count)
 }
