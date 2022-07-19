@@ -4,14 +4,13 @@
  * @Date: 2022/7/19 00:17
  */
 
-package main
+package nqueen
 
 import (
 	"fmt"
 	"testing"
 )
 
-func Test_check(t *testing.T) {
-	dfs(0, 0)
-	fmt.Println(count)
+func Test_nQueens(t *testing.T) {
+	fmt.Println(nQueens(5))
 }
