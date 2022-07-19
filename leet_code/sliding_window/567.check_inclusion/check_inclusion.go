@@ -3,10 +3,9 @@
  * @Date: 2022/7/16 19:06
  */
 
-package main
+package check_inclusion
 
-import "fmt"
-
+// https://leetcode.cn/problems/permutation-in-string/
 func checkInclusion(s1 string, s2 string) bool {
 	needs, has := make(map[byte]int), make(map[byte]int)
 	left, right, valid := 0, 0, 0
@@ -26,7 +25,7 @@ func checkInclusion(s1 string, s2 string) bool {
 		right++
 
 		for valid == len(needs) {
-			if right - left == len(s1) {
+			if right-left == len(s1) {
 				return true
 			}
 			b := s2[left]
@@ -40,10 +39,4 @@ func checkInclusion(s1 string, s2 string) bool {
 		}
 	}
 	return false
-}
-
-func main()  {
-	s1 := "ab"
-	s2 := "eidbaooo"
-	fmt.Println(checkInclusion(s1,s2))
 }
