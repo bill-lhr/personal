@@ -4,7 +4,7 @@
  * @Date: 2022/7/19 00:13
  */
 
-package permutation
+package permute_unique
 
 import (
 	"fmt"
@@ -12,6 +12,5 @@ import (
 )
 
 func Test_permutation(t *testing.T) {
-	s := "abc"
-	fmt.Println(permutation(s))
+	fmt.Println(permuteUnique([]int{1, 2, 3}))
 }
