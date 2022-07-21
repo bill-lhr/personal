@@ -5,7 +5,10 @@ import "math"
 // https://leetcode.cn/problems/coin-change/
 // eg: coins == [1,2,5] amount == 11
 
-// 1. 自顶向下 备忘录剪枝
+// 自顶向下 备忘录剪枝
+// dp方法定义: dp(i) 表示金额为i，最少需要dp(i)个硬币
+// 状态转义: dp(i) = min{ dp(i-coin) | coin ∈ coins} 注意--dp(i-coin)必须有解才能做min计算
+
 func coinChange(coins []int, amount int) int {
 	memo := make(map[int]int) // 备忘录
 	var dp func(int) int
