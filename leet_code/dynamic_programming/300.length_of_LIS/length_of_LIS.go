@@ -7,7 +7,7 @@
 package length_of_LIS
 
 import (
-	"github.com/bill-lhr/personal/common"
+	"github.com/bill_lhr/personal/common"
 )
 
 // https://leetcode.cn/problems/longest-increasing-subsequence/
