@@ -24,7 +24,7 @@ func coinChange(coins []int, amount int) int {
 			return memo[amount]
 		}
 
-		res := math.MaxInt
+		res := math.MaxInt32
 		for _, coin := range coins {
 			subRes := dp(amount - coin)
 			if subRes == -1 {
@@ -32,7 +32,7 @@ func coinChange(coins []int, amount int) int {
 			}
 			res = min(res, subRes) + 1
 		}
-		if res == math.MaxInt {
+		if res == math.MaxInt32 {
 			res = -1
 		}
 		memo[amount] = res

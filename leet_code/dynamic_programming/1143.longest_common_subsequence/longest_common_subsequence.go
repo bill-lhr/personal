@@ -1,6 +1,8 @@
 package longest_common_subsequence
 
-import "github.com/bill-lhr/utils/src/common"
+import (
+	"github.com/bill-lhr/personal/common"
+)
 
 // https://leetcode.cn/problems/longest-common-subsequence/
 /*
@@ -39,7 +41,7 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 			memo[i][j] = dp(i-1, j-1) + 1
 			return memo[i][j]
 		} else {
-			memo[i][j] = common.MaxInt(dp(i-1, j), dp(i, j-1))
+			memo[i][j] = common.Max(dp(i-1, j), dp(i, j-1))
 			return memo[i][j]
 		}
 	}
@@ -48,3 +50,22 @@ func longestCommonSubsequence(text1 string, text2 string) int {
 }
 
 // 自底向上
+func longestCommonSubsequence2(text1 string, text2 string) int {
+	m, n := len(text1), len(text2)
+	dp := make([][]int, m+1)
+	// 初始化dp数组
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+	}
+
+	for i := 1; i <= m; i++ {
+		for j := 1; j <= n; j++ {
+			if text1[i-1] == text2[j-1] {
+				dp[i][j] = dp[i-1][j-1] + 1
+			} else {
+				dp[i][j] = common.Max(dp[i-1][j], dp[i][j-1])
+			}
+		}
+	}
+	return dp[m][n]
+}
