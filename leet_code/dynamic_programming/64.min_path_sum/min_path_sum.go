@@ -6,6 +6,8 @@
 
 package min_path_sum
 
+import "github.com/bill_lhr/personal/common"
+
 // https://leetcode.cn/problems/minimum-path-sum/
 func minPathSum(grid [][]int) int {
 	m, n := len(grid), len(grid[0])
@@ -23,16 +25,9 @@ func minPathSum(grid [][]int) int {
 			} else if j == 0 {
 				dp[i][j] = dp[i-1][0] + grid[i][j]
 			} else {
-				dp[i][j] = min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
+				dp[i][j] = common.Min(dp[i-1][j], dp[i][j-1]) + grid[i][j]
 			}
 		}
 	}
 	return dp[m-1][n-1]
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
 }
