@@ -1,7 +1,7 @@
 package longest_common_subsequence
 
 import (
-	"github.com/bill_lhr/personal/common"
+	"github.com/bill-lhr/personal/common"
 )
 
 // https://leetcode.cn/problems/longest-common-subsequence/

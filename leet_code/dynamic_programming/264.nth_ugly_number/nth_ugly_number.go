@@ -1,6 +1,9 @@
 package nth_ugly_number
 
-import "github.com/bill-lhr/personal/common"
+import (
+	"github.com/bill-lhr/personal/common"
+	"math"
+)
 
 /**
  * @Description:
@@ -12,9 +15,13 @@ func nthUglyNumber(n int) int {
 	dp := make([]int, n+1)
 	dp[1] = 1
 	for i := 2; i <= n; i++ {
+		dp[i] = math.MaxInt32
 		for j := 1; j < i; j++ {
 			for _, num := range []int{2, 3, 5} {
-				dp[i] = common.Min(dp[i], dp[j]*num)
+				tmp := dp[j] * num
+				if tmp > dp[i-1] {
+					dp[i] = common.Min(dp[i], tmp)
+				}
 			}
 		}
 	}
