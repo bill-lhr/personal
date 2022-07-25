@@ -24,6 +24,6 @@ func quickSort(s []int, left, right int) {
 	}
 	s[i], s[pivot] = s[pivot], s[i]
 
-	quickSort(s, 0, i-1)
+	quickSort(s, left, i-1)
 	quickSort(s, i+1, right)
 }

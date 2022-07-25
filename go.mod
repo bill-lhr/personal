@@ -1,3 +1,3 @@
-module github.com/bill-lhr/personal
+module github.com/bill_lhr/personal
 
 go 1.16
