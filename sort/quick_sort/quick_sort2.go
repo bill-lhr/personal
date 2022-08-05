@@ -10,11 +10,11 @@ func quickSort2(a []int, low, high int) {
 		return
 	}
 
-	dealPivot(a, low, high)
 	if high-low+1 >= 3 {
+		dealPivot(a, low, high)
 		i, j := low+1, high-2
 		pivot := high - 1
-		for {
+		for i < j {
 			for i < j && a[i] < a[pivot] {
 				i++
 			}
@@ -23,8 +23,6 @@ func quickSort2(a []int, low, high int) {
 			}
 			if i < j {
 				a[i], a[j] = a[j], a[i]
-			} else {
-				break
 			}
 		}
 
@@ -36,7 +34,9 @@ func quickSort2(a []int, low, high int) {
 		quickSort2(a, low, i-1)
 		quickSort2(a, i+1, high)
 	} else {
-		insertSort(a)
+		if a[low] > a[high] {
+			a[low], a[high] = a[high], a[low]
+		}
 	}
 }
 
