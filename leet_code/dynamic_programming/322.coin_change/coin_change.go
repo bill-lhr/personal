@@ -1,6 +1,9 @@
 package coin_change
 
-import "math"
+import (
+	"github.com/bill_lhr/personal/common"
+	"math"
+)
 
 // https://leetcode.cn/problems/coin-change/
 // eg: coins == [1,2,5] amount == 11
@@ -30,7 +33,7 @@ func coinChange(coins []int, amount int) int {
 			if subRes == -1 {
 				continue
 			}
-			res = min(res, subRes) + 1
+			res = common.Min(res, subRes) + 1
 		}
 		if res == math.MaxInt32 {
 			res = -1
@@ -39,11 +42,4 @@ func coinChange(coins []int, amount int) int {
 		return res
 	}
 	return dp(amount)
-}
-
-func min(i, j int) int {
-	if i < j {
-		return i
-	}
-	return j
 }
