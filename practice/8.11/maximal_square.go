@@ -15,7 +15,7 @@ func maximalSquare(matrix [][]byte) int {
 				dp[i][j] = 0
 				continue
 			}
-			dp[i][j] = common.Min(dp[i-1][j], common.Min(dp[i-1][j-1], dp[i][j-1]))
+			dp[i][j] = common.Min(dp[i-1][j], common.Min(dp[i-1][j-1], dp[i][j-1])) + 1
 			maxLen = common.Max(maxLen, dp[i][j])
 		}
 	}
