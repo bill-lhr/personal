@@ -15,10 +15,10 @@ func quickSort2(a []int, low, high int) {
 		i, j := low+1, high-2
 		pivot := high - 1
 		for i < j {
-			for i < j && a[i] < a[pivot] {
+			for i < j && a[i] <= a[pivot] {
 				i++
 			}
-			for i < j && a[j] > a[pivot] {
+			for i < j && a[j] >= a[pivot] {
 				j--
 			}
 			if i < j {
