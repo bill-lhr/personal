@@ -12,11 +12,11 @@ func mergeKLists(lists []*common.ListNode) *common.ListNode {
 	if len(lists) == 0 {
 		return nil
 	}
-	var res *common.ListNode
-	for _, list := range lists {
-		res = merge(res, list)
+	if len(lists) == 1 {
+		return lists[0]
 	}
-	return res
+	mid := len(lists) / 2
+	return merge(mergeKLists(lists[:mid]), mergeKLists(lists[mid:]))
 }
 
 func merge(list1 *common.ListNode, list2 *common.ListNode) *common.ListNode {
